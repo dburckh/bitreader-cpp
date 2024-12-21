@@ -46,14 +46,14 @@ size_t direct_file_reader::read(uint8_t* dest, uint64_t position, size_t bytes) 
 }
 
 //----------------------------------------------------------------------
-uint64_t direct_file_reader::size() {
+size_t direct_file_reader::size() {
     fseek64(_file, 0, SEEK_END);
     auto result = ftell64(_file);
     if (result < 0) {
         throw std::runtime_error("Could not seek to the end of the file");
     }
 
-    return static_cast<uint64_t>(result);
+    return static_cast<size_t>(result);
 }
 
 //----------------------------------------------------------------------

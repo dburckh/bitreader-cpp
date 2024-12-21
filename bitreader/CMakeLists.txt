@@ -17,11 +17,11 @@ set(BITREADER_HEADERS
         include/bitreader/data_source/file_byte_source.hpp
     )
 
-add_library(bitreadercpp STATIC ${BITREADER_SOURCES} ${BITREADER_HEADERS})
+add_library(bitreadercpp SHARED ${BITREADER_SOURCES} ${BITREADER_HEADERS})
 target_include_directories(bitreadercpp PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 target_include_directories(bitreadercpp PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 set_target_properties(bitreadercpp PROPERTIES
-        CXX_STANDARD 17
+        CXX_STANDARD 14
         CXX_STANDARD_REQUIRED ON
 )
 

@@ -41,12 +41,12 @@ bool file_byte_source::depleted() {
 }
 
 //----------------------------------------------------------------------
-uint64_t file_byte_source::available() {
+size_t file_byte_source::available() {
     return _reader->size() - _position;
 }
 
 //----------------------------------------------------------------------
-uint64_t file_byte_source::position() {
+uint64_t file_byte_source::position() const {
     return _position;
 }
 

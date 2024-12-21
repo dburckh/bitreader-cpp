@@ -36,3 +36,6 @@ cmake-build-debug
 build
 *.user
 .vscode
+.cxx
+.gradle
+.vs

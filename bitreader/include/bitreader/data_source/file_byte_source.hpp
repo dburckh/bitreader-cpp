@@ -13,8 +13,8 @@ namespace brcpp
         explicit file_byte_source(std::shared_ptr<file_reader> reader);
         size_t get_n(uint64_t& buf, size_t bytes);
         bool depleted();
-        uint64_t available();
-        uint64_t position();
+        size_t available();
+        uint64_t position() const;
         void seek(uint64_t position);
         void skip(uint64_t bytes);
         std::shared_ptr<file_byte_source> clone();

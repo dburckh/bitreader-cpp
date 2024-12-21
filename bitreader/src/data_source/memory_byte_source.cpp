@@ -40,7 +40,7 @@ bool memory_byte_source::depleted()
 }
 
 //----------------------------------------------------------------------
-uint64_t memory_byte_source::available()
+size_t memory_byte_source::available()
 {
     return static_cast<uint64_t>(_data.end() - _current);
 }

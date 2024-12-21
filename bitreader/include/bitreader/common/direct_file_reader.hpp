@@ -15,7 +15,7 @@ namespace brcpp
     {
     public:
         size_t read(uint8_t* dest, uint64_t position, size_t bytes) override;
-        uint64_t size() override;
+        size_t size() override;
         bool depleted() override;
         ~direct_file_reader() override;
         std::shared_ptr<file_reader> clone() override;
