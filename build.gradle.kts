@@ -8,10 +8,10 @@ android {
     namespace = "bitreadercpp"
     compileSdk = 34
     defaultConfig {
-        minSdk = 24
+        minSdk = 21
         externalNativeBuild {
             cmake {
-                arguments.add("-DANDROID_STL=none")
+                arguments.add("-DANDROID_STL=c++_shared")
             }
         }
     }

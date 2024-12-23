@@ -26,12 +26,16 @@ namespace
 {
     int fseek64(FILE* file, uint64_t pos, int origin)
     {
-        return fseeko64(file, pos, origin);
+        // Requires API 24
+        //return fseeko64(file, pos, origin);
+        return fseek(file, pos, origin);
     }
     
     int64_t ftell64(FILE* file)
     {
-        return ftello64(file);
+        // Requires API 24
+        //return ftello64(file);
+        return ftell(file);
     }
 }
 #endif
@@ -76,7 +80,9 @@ std::shared_ptr<file_reader> direct_file_reader::open(const std::string& path) {
 direct_file_reader::direct_file_reader(const std::string& path)
     : _path(path)
 {
-    _file = fopen64(path.c_str(), "rb");
+    // Requires API 24
+//    _file = fopen64(path.c_str(), "rb");
+    _file = fopen(path.c_str(), "rb");
     if (!_file) {
         throw std::runtime_error("Could not open file for reading");
     }
