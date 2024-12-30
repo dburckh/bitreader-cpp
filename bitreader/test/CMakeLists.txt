@@ -10,10 +10,12 @@ set_target_properties(bitreader_gtest PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         )
-add_custom_command(TARGET bitreader_gtest POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy -t $<TARGET_FILE_DIR:bitreader_gtest> $<TARGET_RUNTIME_DLLS:bitreader_gtest>
-        COMMAND_EXPAND_LISTS
-      )
+if (WIN32)
+        add_custom_command(TARGET bitreader_gtest POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy -t $<TARGET_FILE_DIR:bitreader_gtest> $<TARGET_RUNTIME_DLLS:bitreader_gtest>
+                COMMAND_EXPAND_LISTS
+        )
+endif()
 add_test(AllTestsBitreader bitreader_gtest)
 
 ############## Common gtest
@@ -30,10 +32,6 @@ set_target_properties(common_gtest PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         )
-add_custom_command(TARGET common_gtest POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy -t $<TARGET_FILE_DIR:common_gtest> $<TARGET_RUNTIME_DLLS:common_gtest>
-        COMMAND_EXPAND_LISTS
-      )
 
 include(GoogleTest)
 add_test(AllTestsCommon common_gtest)
