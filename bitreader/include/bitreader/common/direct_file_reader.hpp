@@ -14,7 +14,7 @@ namespace brcpp
     class direct_file_reader: public file_reader
     {
     public:
-        size_t read(uint8_t* dest, uint64_t position, size_t bytes) override;
+        size_t read(uint8_t* dest, size_t position, size_t bytes) override;
         size_t size() override;
         bool depleted() override;
         ~direct_file_reader() override;

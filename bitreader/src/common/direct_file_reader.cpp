@@ -41,7 +41,7 @@ namespace
 #endif
 
 //----------------------------------------------------------------------
-size_t direct_file_reader::read(uint8_t* dest, uint64_t position, size_t bytes) {
+size_t direct_file_reader::read(uint8_t* dest, size_t position, size_t bytes) {
     if (fseek64(_file, position, SEEK_SET) < 0) {
         throw std::runtime_error("Could not seek to designated position");
     }

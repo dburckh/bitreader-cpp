@@ -33,7 +33,7 @@ namespace {
         }
 
         //----------------------------------------------------------------------
-        size_t read(uint8_t* dest, uint64_t position, size_t bytes) override
+        size_t read(uint8_t* dest, size_t position, size_t bytes) override
         {
             if (position > _data.size()) {
                 throw std::runtime_error("Cannot seek beyond the end of the buffer");
@@ -47,7 +47,7 @@ namespace {
         }
 
         //----------------------------------------------------------------------
-        uint64_t size() override
+        size_t size() override
         {
             return _data.size();
         }

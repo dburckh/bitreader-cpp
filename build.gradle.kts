@@ -42,7 +42,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.homesoft.android"
                 artifactId = "bitreadercpp"
-                version = "0.2.0"
+                version = "0.1.0"
             }
         }
     }
